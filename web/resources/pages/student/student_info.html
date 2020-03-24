@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>选课管理系统</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+  <div class="wrapper">
+
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="index_student.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="#" class="nav-link">Contact</a>
+        </li>
+      </ul>
+
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <!-- Brand Logo -->
+      <a href="#" class="brand-link">
+        <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+          style="opacity: .8">
+        <span class="brand-text font-weight-light">学生端</span>
+      </a>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            <img src="../../dist/img/avatar04.png" class="img-circle elevation-2" alt="User Image">
+          </div>
+          <div class="info">
+            <a id="username" class="d-block">Alexander Pierce</a>
+          </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2" style="height:75%; overflow:hidden;">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+            <li class="nav-item">
+              <a href="#" class="nav-link active">
+                <i class="nav-icon fas fa-address-card"></i>
+                <p>个人信息</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="course_timetable.html" class="nav-link">
+                <i class="nav-icon far fa-calendar-alt"></i>
+                <p>
+                  学期课表
+                </p>
+              </a>
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  课程管理
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="course_info.html" class="nav-link">
+                    <i class="far ion-information-circled nav-icon"></i>
+                    <p>课程信息</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="course_select.html" class="nav-link">
+                    <i class="far nav-icon fa-plus-square"></i>
+                    <p>添加课程</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="chosen_course.html" class="nav-link">
+                    <i class="fas fa-clipboard-list nav-icon"></i>
+                    <p>已选课程</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+        </nav>
+        <!-- /.sidebar-menu -->
+
+        <!-- sidebar log out panel -->
+        <div class="nav-item  nav-compact flex-column" role="menu" data-accordion="false">
+          <a href="../login.html" class="nav-link">
+            <i class="fas nav-icon fa-sign-out-alt fa-2x"
+              style="color: rgb(172, 35, 35); position:absolute; bottom:2vmin;left:2vmin;"></i>
+            <div style="text-indent:3vmin;font-size: 4vmin; 
+                position:absolute;bottom:1%;left:15%;"><b>注销</b></div>
+          </a>
+        </div>
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <!-- <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>个人信息</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="index_student.html">Home</a></li>
+                <li class="breadcrumb-item active">个人信息</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section> -->
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-3">
+
+              <!-- Profile Image -->
+              <div class="card card-primary card-outline">
+                <div class="card-body box-profile">
+                  <div class="text-center">
+                    <img class="profile-user-img img-fluid img-circle" src="../../dist/img/avatar04.png"
+                      alt="User profile picture">
+                  </div>
+
+                  <h3 id="name" class="profile-username text-center username">Alexander Pierce</h3>
+
+                  <p id="id" class="text-muted text-center">2017525358865
+                    <i id="gender_male" class="icon ion-male ion-male" style="color: blue;"></i>
+                    <i id="gender_female" class="icon ion-female" style="color:pink"></i>
+                  </p>
+
+                  <ul class="list-group list-group-unbordered mb-3">
+                    <li class="list-group-item">
+                      <b>学校</b> <a id="university" class="float-right">四川大学</a>
+                    </li>
+                    <li class="list-group-item">
+                      <b>学院</b> <a id="college" class="float-right">计算机学院</a>
+                    </li>
+                    <li class="list-group-item">
+                      <b>专业</b> <a id="major" class="float-right">计算机科学与技术</a>
+                    </li>
+                  </ul>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+
+            </div>
+            <!-- /.col -->
+            <div class="col-md-9">
+              <div class="card card-primary card-outline">
+                <div class="card-header p-2">
+                  <ul class="nav nav-pills">
+                    <li class="nav-item"><a class="nav-link active" href="#info" data-toggle="tab">名片</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">设置</a></li>
+                  </ul>
+                </div><!-- /.card-header -->
+                <div class="card-body">
+                  <div class="tab-content">
+                    <div class="active tab-pane" id="info">
+                      <div class="row">
+                        <div class="col-md-7">
+                          <strong><i class="fas fa-book mr-1"></i> 高中毕业学校</strong>
+                          <div id="graduate_school" class="text-muted">
+                            四川大学附属中学
+                          </div>
+                        </div>
+                        <div class="col-md-auto">
+                          <strong><i class="fas fa-map-marker-alt mr-1"></i> 籍贯</strong>
+                          <p id="birthplace" class="text-muted">成都, 四川</p>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-7">
+                          <strong><i class="fas fa-phone-alt mr-1"></i> 电话</strong>
+                          <p id="tel" class="text-muted">10086</p>
+                        </div>
+                        <div class="col-md-auto">
+                          <strong><i class="fas fa-envelope mr-1"></i> 邮箱</strong>
+                          <p id="email" class="text-muted">2017525358865@stu.scu.edu.cn</p>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-auto">
+                          <strong><i class=""></i></strong>
+                        </div>
+                      </div>
+                      <br>
+                      <strong><i class="fas fa-spa mr-1"></i> 兴趣爱好</strong>
+
+                      <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum
+                        enim
+                        neque.</p>
+                    </div>
+                    <!-- /.tab-pane -->
+
+                    <div class="tab-pane" id="settings">
+
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        </div>
+                        <input type="email" class="form-control" placeholder="Email">
+                      </div>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                        </div>
+                        <input type="tel" class="form-control" placeholder="Telphone" />
+                      </div>
+                      <div class="input-group mb-5">
+                        <div class="custom-file mb-1">
+                          <input type="file" class="custom-file-input" id="customFile">
+                          <label class="custom-file-label" for="customFile">点击上传头像</label>
+                        </div>
+                      </div>
+                      <div class="input-group mb-5">
+                        <div class="offset-sm-2 col-sm-10">
+                          <button id="submit" type="submit" class="btn btn-danger float-right">提交</button>
+                        </div>
+                      </div>
+
+                    </div>
+                    <!-- /.tab-pane -->
+                  </div>
+                  <!-- /.tab-content -->
+                </div><!-- /.card-body -->
+              </div>
+              <!-- /.nav-tabs-custom -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+  </div>
+  <!-- /.content-wrapper -->
+
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+  </div>
+  <!-- ./wrapper -->
+
+  <!-- jQuery -->
+  <script src="../../plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="../../dist/js/adminlte.min.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="../../dist/js/demo.js"></script>
+  <!-- coder custom render -->
+  <script>
+
+    $(function () {
+      var user = JSON.parse(sessionStorage.getItem("user"));
+      console.log(user);
+      $("#username").text(user.name);
+      $("#name").text(user.name);
+      $("#id").text(user.id);
+
+      $.post("http://localhost:8080/dbLab_war_exploded/info", {fromdata:JSON.stringify(user)},
+              function(data){
+        page_render(JSON.parse(data));
+        console.log(data);
+      });
+
+      $("#submit").click(function () {
+
+      })
+    })
+
+    function page_render(data) {
+      //data format
+      // {
+      //     gender:
+      //     univerrsity:
+      //     college:
+      //     major:
+      //     graduate_school:
+      //     birthplace:
+      //     tel:
+      //     email:
+      //     hobby: [
+      //     ***,
+      //     ****,
+      //     ]
+      // }
+      $("#id").html(JSON.parse(sessionStorage.getItem('user')).id +
+              `${data.gender === '男' ? '<i id="gender_male" class="icon ion-male ion-male" style="color: blue;"></i>' :
+                      '<i id="gender_female" class="icon ion-female" style="color:pink"></i>'}
+        `);
+      $("#name").text($("#username").text());
+      $("#university").text(data.university);
+      $("#college").text(data.college);
+      $("#major").text(data.major);
+      $("#graduate_school").text(data.graduate_school);
+      $("#birthplace").text(data.birthplace);
+      $("#tel").text(data.tel);
+      $("#email").text(data.email);
+      var str = "";
+      for (i in data.hobby) {
+        str += data.hobby[i];
+      }
+      $("#hobby").text(str);
+    }
+
+// 未实现：
+//     文件上传功能 个人信息修改 提交修改信息
+
+  </script>
+</body>
+
+</html>

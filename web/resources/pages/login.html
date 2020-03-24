@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>选课管理系统 | Log in</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+
+<body class="hold-transition login-page">
+  <div class="login-box">
+
+    <!-- /.login-logo -->
+    <div class="card">
+      <div class="card-body login-card-body">
+
+        <form method="post">
+          <div class="login-logo">
+            <a href="#"><b>选课管理系统</b></a><br>
+            <!-- <img src="assets/img/login.jpg"> -->
+          </div>
+
+          <div class="input-group mb-3">
+            <input id="user_id" type="username" class="form-control" placeholder="Username">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-user"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input id="user_password" type="password" class="form-control" placeholder="Password">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-8">
+              <div class="icheck-primary">
+                <input type="checkbox" id="remember">
+                <label for="remember">
+                  Remember Me
+                </label>
+              </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-4">
+              <button type="button" id="checkUser" class="btn btn-primary btn-block btn-flat">Sign
+                In</button>
+            </div>
+            <!-- /.col -->
+          </div>
+          <!--login info-->
+          <div class="text-center">
+            <span id="login_info" class="alert-error round"></span>
+          </div>
+        </form>
+
+      </div>
+      <!-- /.login-card-body -->
+    </div>
+  </div>
+  <!-- /.login-box -->
+
+  <!-- jQuery -->
+  <script src="../plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="../dist/js/adminlte.min.js"></script>
+  <!--Page Render-->
+  <script>
+    $("#checkUser").click(function () {
+      var check = true;
+      var id = $("#user_id").val();
+      var password = $("#user_password").val();
+      var info = $("#login_info");
+      info.html("");
+
+      if (id == "") {
+        info.html("用户ID不能为空");
+        return false;
+      }
+      else {
+        var re = new RegExp("^[0-9]+$");
+        if (!(re.test(id))) {
+          info.html("用户ID只能由数字构成");
+          return false;
+        }
+      }
+      if (password == "") {
+        info.html("密码不能为空");
+        return false;
+      }
+      var json={
+          "id":id,
+          "password":password
+      }
+
+      $.post("http://localhost:8080/dbLab_war_exploded/signin",{fromdata:JSON.stringify(json)},
+        function (data) {
+          // server return json:{
+          //   id:******，
+          //   name:*****,
+          //   message:"",
+          // }-> data
+          //server should check input da
+          console.log(data);
+            if(JSON.parse(data).message==="success!") {
+              sessionStorage.setItem("user", data);
+              window.location.assign(JSON.parse(data).ur);
+            }
+            else{
+              info.html("用户ID或者密码错误！");
+            }
+
+
+         // window.location.href=JSON.stringify(data).url;
+        })
+        /*.error(function(){
+          info.html("密码错误，请重新输入");
+        })
+        .fail(function(){
+          info.html("账号不存在，请重新输入");
+        });*/
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>选课管理系统</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+  <div class="wrapper">
+
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="index_teacher.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="#" class="nav-link">Contact</a>
+        </li>
+      </ul>
+
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <!-- Brand Logo -->
+      <a href="#" class="brand-link">
+        <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+          style="opacity: .8">
+        <span class="brand-text font-weight-light">教师端</span>
+      </a>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            <img src="../../dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
+          </div>
+          <div class="info">
+            <a href="#" id="username" class="d-block">Alexander Pierce</a>
+          </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2" style="height:75%; overflow:hidden;">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+            <li class="nav-item">
+              <a href="#" class="nav-link active">
+                <i class="nav-icon fas fa-address-card"></i>
+                <p>个人信息</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="course_timetable.html" class="nav-link">
+                <i class="nav-icon far fa-calendar-alt"></i>
+                <p>
+                  学期课表
+                </p>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a href="course_manage.html" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  课程管理
+                </p>
+              </a>
+
+            </li>
+          </ul>
+
+        </nav>
+        <!-- /.sidebar-menu -->
+
+        <!-- sidebar log out panel -->
+        <div class="nav-item  nav-compact flex-column" role="menu" data-accordion="false">
+          <a href="../login.html" class="nav-link">
+            <i class="fas nav-icon fa-sign-out-alt fa-2x"
+              style="color: rgb(172, 35, 35); position:absolute; bottom:2vmin;left:2vmin;"></i>
+            <div style="text-indent:3vmin;font-size: 4vmin; 
+                position:absolute;bottom:1%;left:15%;"><b>注销</b></div>
+          </a>
+        </div>
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <!-- <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-n1">
+            <div class="col-sm-6">
+              <h1>个人信息</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="index_teacher.html">Home</a></li>
+                <li class="breadcrumb-item active">个人信息</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section> -->
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-3">
+
+              <!-- Profile Image -->
+              <div class="card card-primary card-outline">
+                <div class="card-body box-profile">
+                  <div class="text-center">
+                    <img class="profile-user-img img-fluid img-circle" src="../../dist/img/avatar5.png"
+                      alt="User profile picture">
+                  </div>
+
+                  <h3 id="name" class="profile-username text-center">Alexander Pierce</h3>
+
+                  <p id="id" class="text-muted text-center">
+                    2017525358865
+                    <i id="gender_male" class="icon ion-male ion-male" style="color: blue;"></i>
+                    <i id="gender_female" class="icon ion-female" style="color:pink"></i>
+                  </p>
+
+                  <ul class="list-group list-group-unbordered mb-3">
+                    <li class="list-group-item">
+                      <b>学校</b> <a id="university" class="float-right">四川大学</a>
+                    </li>
+                    <li class="list-group-item">
+                      <b>学院</b> <a id="college" class="float-right">计算机学院</a>
+                    </li>
+                    <li class="list-group-item">
+                      <b>所在系所</b> <a id="department" class="float-right">计算机科学系</a>
+                    </li>
+                  </ul>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+
+              <!-- About Me Box -->
+              <div class="card card-primary">
+                <div class="card-header">
+                  <h3 class="card-title">About Me</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <strong><i class="fas fa-book mr-1"></i> 职称</strong>
+
+                  <p id="title" class="text-muted">
+                    教授/博士生导师
+                  </p>
+
+                  <hr>
+
+                  <strong><i class="fas fa-map-marker-alt mr-1"></i> 办公地址</strong>
+
+                  <p id="office" class="text-muted"> 四川大学望江基础教学楼B319</p>
+
+                  <hr>
+
+                  <strong><i class="fas fa-pencil-alt mr-1"></i> 研究方向</strong>
+
+                  <p id="interest" class="text-muted">
+                    机器学习、数据挖掘、神经计算及其应用
+                  </p>
+
+                  <hr>
+
+                  <strong><i class="far fa-file-alt mr-1"></i> 职务</strong>
+
+                  <p id="position" class="text-muted">副院长</p>
+                </div>
+                <!-- /.card-body -->
+              </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-md-9">
+              <div class="card card-primary card-outline">
+                <div class="card-header p-2">
+                  <ul class="nav nav-pills">
+                    <li class="nav-item"><a class="nav-link active" href="#info" data-toggle="tab">名片</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">设置</a></li>
+                  </ul>
+                </div><!-- /.card-header -->
+                <div class="card-body">
+                  <div class="tab-content">
+                    <div class="active tab-pane" id="info">
+                      <div class="row">
+                        <div class="col-md-7">
+                          <strong><i class="fas fa-book mr-1"></i> 个人主页</strong>
+                          <p id="personal_web" class="text-muted">
+                            http://cs.scu.edu.cn/~duanle
+                          </p>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-7">
+                          <strong><i class="fas fa-phone-alt mr-1"></i> 电话</strong>
+                          <p id="tel" class="text-muted">85466105</p>
+                        </div>
+                        <div class="col-md-auto">
+                          <strong><i class="fas fa-envelope mr-1"></i> 邮箱</strong>
+                          <p id="email" class="text-muted">eiduan@scu.edu.cn</p>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-auto">
+                          <strong><i class="fas fa-spa mr-1"></i> 个人简介</strong>
+
+                          <p id="intro" class="text-muted">　2008年12月获四川大学计算机应用技术专业博士学位。毕业后留校任教。2007年9月至2008年9月于美国Wright
+                            State大学做联合培养博士研究生。2012年10月至2013年10月于加拿大Simon Fraser大学做访问学者。
+                            　　研究领域为数据挖掘与知识工程，具体研究方向包括分类预测、时间序列、对比挖掘、进化计算、医学信息分析、基因芯片数据处理、知识管理、大数据处理等。作为负责人主持了国家自然科学基金、教育部博士点基金、中国博士后科学基金、软件工程国家重点实验室开放基金、卫生公益性行业科研项目子课题等多项科研项目。目前已在国际国内学术期刊和国际会议上发表论文70余篇，其中SCI/EI收录逾30篇；获软件著作权2项，申请国家专利1项。
+                            　　担任中国计算机学会青年计算机科技论坛（CCF YOCSEF）成都分论坛副主席、学术秘书，CCF四川大学学生分会指导委员会委员，ACM Chengdu
+                            Chapter四川大学学生分会指导委员会委员，第11届万维网时代信息管理国际学术会议（WAIM
+                            2010）组委会共同主席。担任亚太知识发现与数据挖掘国际学术会议（PAKDD）、中国数据库学术会议（NDBC）、中国信息检索学术会议（CCIR）、万维网时代信息管理国际学术会议（WAIM）等多个学术会议的程序委员会委员。
+                          </p>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-auto">
+                          <strong><i class="fas fa-award mr-1"></i> 项目成果及所获荣誉</strong>
+                          <p id="honor" class="text-muted">
+                            2012年教育部自然科学奖一等奖
+                            2011年四川省科技进步一等奖
+                            2009年教育部新世纪优秀人才
+                            2007年获得四川省科技理论成果二等奖；
+                            2007年中国计算机学会（CCF）优秀博士论文奖；
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /.tab-pane -->
+
+                    <div class="tab-pane" id="settings">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fab fa-internet-explorer"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Personal Homepage">
+                      </div>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        </div>
+                        <input type="email" class="form-control" placeholder="Email">
+                      </div>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                        </div>
+                        <input type="tel" class="form-control" placeholder="Telphone" />
+                      </div>
+                      <div class="input-group mb-5">
+                        <div class="custom-file mb-1">
+                          <input type="file" class="custom-file-input" id="customFile">
+                          <label class="custom-file-label" for="customFile">点击上传头像</label>
+                        </div>
+                      </div>
+                      <div class="input-group mb-5">
+                        <div class="offset-sm-2 col-sm-10">
+                          <button type="submit" class="btn btn-danger float-right">提交</button>
+                        </div>
+                      </div>
+
+                    </div>
+                    <!-- /.tab-pane -->
+                  </div>
+                  <!-- /.tab-content -->
+                </div><!-- /.card-body -->
+              </div>
+              <!-- /.nav-tabs-custom -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+  </div>
+  <!-- /.content-wrapper -->
+
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+  </div>
+  <!-- ./wrapper -->
+
+  <!-- jQuery -->
+  <script src="../../plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="../../dist/js/adminlte.min.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="../../dist/js/demo.js"></script>
+  <!-- coder custom render -->
+  <script>
+    $(function () {
+      var user = JSON.parse(sessionStorage.getItem("user"));
+      $("#username").text(user.name);
+      $("#name").text(user.name);
+
+      $.post("http://localhost:8080/dbLab_war_exploded/info", { fromdata: JSON.stringify(user) },
+        function (data) {
+          page_render(JSON.parse(data));
+
+        });
+
+      $("#submit").click(function () {
+
+      })
+    });
+
+    function page_render(data) {
+      //console.log(data);
+      //data format
+      // {
+      //     gender:
+      //     univerrsity:
+      //     college:
+      //     department:
+      //     interest:
+      //     personal_web:
+      //     office:
+      //     tel:
+      //     email:
+      //     intro:
+      //     honor: [
+      //     ***,
+      //     ****,
+      //     ]
+      // }
+      $("#id").html(JSON.parse(sessionStorage.getItem('user')).id +
+        `${data.gender === '男' ? '<i id="gender_male" class="icon ion-male ion-male" style="color: blue;"></i>' :
+          '<i id="gender_female" class="icon ion-female" style="color:pink"></i>'}
+        `);
+      $("#name").text($("#username").text());
+      $("#university").text(data.university);
+      $("#college").text(data.college);
+      $("#department").text(data.department);
+      $("#interest").text(data.interest);
+      $("#personal_web").text(data.personal_web);
+      $("#office").text(data.office);
+      $("#tel").text(data.tel);
+      $("#email").text(data.email);
+      $("#intro").text(data.intro);
+      var str = "";
+      for (i in data.honor) {
+        str += data.honor[i];
+      }
+      $("#honor").text(str);
+    }
+
+  </script>
+</body>
+
+</html>

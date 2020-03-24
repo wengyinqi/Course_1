@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>选课管理系统</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+
+<body class="hold-transition sidebar-mini">
+  <!-- Site wrapper -->
+  <div class="wrapper">
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="index_teacher.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="#" class="nav-link">Contact</a>
+        </li>
+      </ul>
+
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <!-- Brand Logo -->
+      <a href="index_teacher.html" class="brand-link">
+        <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+          style="opacity: .8">
+        <span class="brand-text font-weight-light">教师端</span>
+      </a>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar user (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            <img src="../../dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
+          </div>
+          <div class="info">
+            <a href="#" id="username" class="d-block">Alexander Pierce</a>
+          </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+            <li class="nav-item">
+              <a href="teacher_info.html" class="nav-link">
+                <i class="nav-icon fas fa-address-card"></i>
+                <p>个人信息</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="course_timetable.html" class="nav-link">
+                <i class="nav-icon far fa-calendar-alt"></i>
+                <p>
+                  学期课表
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="course_manage.html" class="nav-link active">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  课程管理
+
+                </p>
+              </a>
+
+            </li>
+          </ul>
+
+        </nav>
+        <!-- /.sidebar-menu -->
+        <!-- sidebar log out panel -->
+        <div class="nav-item  nav-compact flex-column" role="menu" data-accordion="false">
+          <a href="../login.html" class="nav-link">
+            <i class="fas nav-icon fa-sign-out-alt fa-2x"
+              style="color: rgb(172, 35, 35); position:absolute; bottom:2vmin;left:2vmin;"></i>
+            <div style="text-indent:3vmin;font-size: 4vmin; 
+          position:absolute;bottom:1%;left:15%;"><b>注销</b></div>
+          </a>
+        </div>
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>课程信息</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="index_teacher.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="course_manage.html">排课管理</a></li>
+                <li class="breadcrumb-item active">课程信息</li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+
+        <!-- Default box -->
+        <div class="card card-cyan">
+          <div class="card-header" style="height: 1vmin;">
+            <!-- <h3 class="card-title">Projects Detail</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+              <i class="fas fa-minus"></i></button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+              <i class="fas fa-times"></i></button>
+          </div> -->
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
+                <div class="row">
+                  <div class="col-12 col-sm-3">
+                    <div class="info-box bg-light">
+                      <div class="info-box-content">
+                        <span class="info-box-text text-center text-muted">上课周次</span>
+                        <span class="info-box-number text-center text-muted mb-0">
+                          <ul class="list-inline">
+                            <li class="list-inline-item"></li><br>
+                            <li id="week_range" class="list-inline-item">1-17</li><br>
+                            <li class="list-inline-item"></li><br>
+                          </ul>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-3">
+                    <div class="info-box bg-light">
+                      <div class="info-box-content">
+                        <span class="info-box-text text-center text-muted">课程号及课序号</span>
+                        <span class="info-box-number text-center text-muted mb-0">
+                          <ul class="list-inline">
+                            <li class="list-inline-item"></li><br>
+                            <li id="course_id" class="list-inline-item">605236984</li><br>
+                            <li id="course_seq" class="list-inline-item">01</li><br>
+                          </ul>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6">
+                    <div class="info-box bg-light">
+                      <div class="info-box-content">
+                        <span class="info-box-text text-center text-muted">上课时间及地点</span>
+                        <span class="info-box-number text-center text-muted mb-0">
+                          <ul class="list-inline">
+                            <!--周一 5-7节 江安一教A501  -->
+                            <li id="pos_1" class="list-inline-item"></li><br>
+                            <!--  周三 3-4节 江安一教B203-->
+                            <li id="pos_2" class="list-inline-item"></li><br>
+                            <!-- 周五 1-2节 江安综合楼C座608 -->
+                            <li id="pos_3" class="list-inline-item"></li>
+                          </ul>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="card card-cyan ">
+                      <div class="card-header">
+                        <h3 class="card-title">学生名单</h3>
+
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip"
+                            title="Collapse">
+                            <i class="fas fa-minus"></i>
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="card-body p-0">
+                        <table class="table table-striped projects">
+                          <thead>
+                            <tr>
+                              <th style="width:auto">
+                                学号
+                              </th>
+                              <th style="width: auto">
+                                姓名
+                              </th>
+                              <th style="width:auto">
+                                院系
+                                </t>
+                            </tr>
+                          </thead>
+                          <tbody id="student_list">
+                            <!-- <tr>
+                              <td>2017171752256</td>
+                              <td>张三</td>
+                              <td>计算机学院</td>
+                            </tr>
+                            <tr>
+                              <td>2017589541235</td>
+                              <td>李四</td>
+                              <td>化学学院</td>
+                            </tr>
+                            <tr>
+                              <td>2017589541235</td>
+                              <td>李四</td>
+                              <td>化学学院</td>
+                            </tr>
+                            <tr>
+                              <td>2017589541235</td>
+                              <td>李四</td>
+                              <td>化学学院</td>
+                            </tr> -->
+
+                          </tbody>
+                        </table>
+                      </div>
+                      <!-- /.card-body -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
+                <h3 id="course_name" class="text-primary"><i class="fas fa-paint-brush"></i>计算机系统结构</h3>
+                <p id="course_descrip" class="text-muted">Raw denim you probably haven't heard of them jean shorts
+                  Austin. Nesciunt tofu
+                  stumptown aliqua butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terr.
+                </p>
+                <br>
+                <div class="text-muted">
+                  <!-- <p class="text-sm">开设学院
+                    <b id="course_college" class="d-block">计算机学院</b>
+                  </p> -->
+                  <p class="text-sm">任课教师
+                    <b id="course_teacher" class="d-block">张大川</b>
+                  </p>
+                </div>
+
+                <h5 class="mt-5 text-muted">课程文件</h5>
+                <ul class="list-unstyled">
+                  <li>
+                    <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-file-word"></i>
+                      Functional-requirements.docx</a>
+                  </li>
+                  <li>
+                    <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-file-pdf"></i> UAT.pdf</a>
+                  </li>
+                  <li>
+                    <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-envelope"></i>
+                      Email-from-flatbal.mln</a>
+                  </li>
+                  <li>
+                    <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-image "></i> Logo.png</a>
+                  </li>
+                  <li>
+                    <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-file-word"></i>
+                      Contract-10_12_2014.docx</a>
+                  </li>
+                </ul>
+                <div class="row">
+                  <div class="col-md-4">
+                    <a href="#" class="btn btn-sm btn-primary">
+                      添加文件
+                      <input type="file" style="opacity:0;position:absolute;left:0;top:0;width:100%;height:100%;">
+                    </a>
+                  </div>
+                  <div class="col-md-5">
+                    <a href="#" class="btn btn-sm btn-warning">联系管理员</a>
+                  </div>
+                </div>
+
+                <!-- <div class="btn- text-center mt-5 mb-3">
+                  <div href="#" class="btn btn-sm btn-primary">
+                    添加文件
+                    <input type="file" 
+                      style="opacity:0;position:absolute;left:0;top:0;width:100%;height:100%;">
+                  </div>
+                  <div href="#" class="btn btn-sm btn-warning">联系管理员</div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+  </div>
+  <!-- ./wrapper -->
+
+  <!-- jQuery -->
+  <script src="../../plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Select2 -->
+  <script src="../../plugins/select2/js/select2.full.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="../../dist/js/adminlte.min.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="../../dist/js/demo.js"></script>
+  <!-- codee custom render -->
+  <script>
+    $(function () {
+      // var json = {
+      //   "name": "hhh",
+      //   "id": "2017"
+      // };
+      // sessionStorage.setItem("user", JSON.stringify(json));
+      var user = JSON.parse(sessionStorage.getItem("user"));
+      $("#username").text(user.name);
+
+      //load course info from local storage
+      var index = JSON.parse(sessionStorage.getItem("course"));
+      var course = JSON.parse(localStorage.getItem("" + index.id + index.seq));
+      $("#course_name").text(course.name);
+      $("#course_descrip").text(course.description);
+      $("#course_teacher").text(user.name);
+      // $("#course_college").text() no course college info
+      $("#week_range").text(course.week_start + "-" + course.week_end);
+      $("#course_id").text(course.id);
+      $("#course_seq").text(course.seq);
+      //indent setting
+      switch (course.session.length) {
+        case 1:
+          $("#pos_1").text();
+          var temp = course.session[0];
+          $("#pos_2").text(txt(temp));
+          $("#pos_3").text();
+          break;
+        case 2:
+          $("#pos_1").text();
+          var temp = course.session[0];
+          $("#pos_2").text(txt(temp));
+          temp = course.session[1];
+          $("#pos_3").text(txt(temp));
+          break;
+        case 3:
+          var temp = course.session[0];
+          $("#pos_1").text(txt(temp));
+          temp = course.session[1];
+          $("#pos_2").text(txt(temp));
+          temp = course.session[2];
+          $("#pos_3").text(txt(temp));
+          break;
+        default:
+          $("#pos_1").text("ERROR");
+      }
+
+      //request student list from server
+      $.post("http://localhost:8080/dbLab_war_exploded/course_Detail", {fromdata:sessionStorage.getItem("course")},
+        function (data) {
+          /*
+          data format:
+          [
+            {
+              "id":,
+              "name":,
+              "college":
+            },
+            {
+              ...
+            }
+          ]
+          */
+          data=JSON.parse(data);
+          for (var i in data) {
+            $("#student_list").append(
+              "<tr>" +
+              "<td>" + data[i].id + "</td>" +
+              "<td>" + data[i].name + "</td>" +
+              "<td>" + data[i].college + "</td>" +
+              "</tr>"
+            )
+          }
+        })
+
+    })
+    function txt(temp) {
+      return temp.date + temp.session_start + "-" + temp.session_end + " " + temp.pos;
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>选课管理系统</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="../../plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+  <div class="wrapper">
+
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="#" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="#" class="nav-link">Contact</a>
+        </li>
+      </ul>
+
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <!-- Brand Logo -->
+      <a href="#" class="brand-link">
+        <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+          style="opacity: .8">
+        <span class="brand-text font-weight-light">学生端</span>
+      </a>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            <img src="../../dist/img/avatar04.png" class="img-circle elevation-2" alt="User Image">
+          </div>
+          <div class="info">
+            <a href="#" id="username" class="d-block">Alexander Pierce</a>
+          </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2" style="height:75%; overflow:hidden;">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+            <li class="nav-item">
+              <a href="student_info.html" class="nav-link">
+                <i class="nav-icon fas fa-address-card"></i>
+                <p>个人信息</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="course_timetable.html" class="nav-link">
+                <i class="nav-icon far fa-calendar-alt"></i>
+                <p>
+                  学期课表
+                </p>
+              </a>
+            </li>
+            <li class="nav-item has-treeview menu-open">
+              <a href="#" class="nav-link active">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  课程管理
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="course_info.html" class="nav-link">
+                    <i class="far ion-information-circled nav-icon"></i>
+                    <p>课程信息</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="course_select.html" class="nav-link">
+                    <i class="far nav-icon fa-plus-square"></i>
+                    <p>添加课程</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="chosen_course.html" class="nav-link active">
+                    <i class="fas fa-clipboard-list nav-icon"></i>
+                    <p>已选课程</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+        </nav>
+        <!-- /.sidebar-menu -->
+
+        <!-- sidebar log out panel -->
+        <div class="nav-item  nav-compact flex-column" role="menu" data-accordion="false">
+          <a href="../login.html" class="nav-link">
+            <i class="fas nav-icon fa-sign-out-alt fa-2x"
+              style="color: rgb(172, 35, 35); position:absolute; bottom:2vmin;left:2vmin;"></i>
+            <div style="text-indent:3vmin;font-size: 4vmin; 
+        position:absolute;bottom:1%;left:15%;"><b>注销</b></div>
+          </a>
+        </div>
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>已选课程</h1>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+
+        <!-- Default box -->
+        <div class="card card-solid">
+          <div class="card-body pb-0">
+            <!-- <div class="alert alert-warning alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              <h5><i class="icon fas fa-exclamation-triangle"></i> 注意!</h5>
+              您并未选择任何课程！
+            </div> -->
+            <div id="course_list" class="row d-flex align-items-stretch">
+              <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                <div class="card bg-light">
+                  <div class="card-header text-muted border-bottom-0">
+                    计算机学院
+                  </div>
+                  <div class="card-body pt-0">
+                    <div class="row">
+                      <div class="col-auto">
+                        <h2 class="lead"><b>计算机系统结构</b></h2>
+                        <p class="text-muted text-sm"><b>About: </b> 60530412 / 01 / 3学分 /
+                          <span class="badge badge-success">必修</span>
+                        </p>
+                        <ul class="ml-4 mb-0 fa-ul text-muted">
+                          <li class="mid">
+                            <span class="fa-li"><i class="fas fa-lg fa-user"></i></span>
+                            <b>教师: </b>张天庆
+                          </li>
+                          <li class="mid">
+                            <span class="fa-li"><i class="fas fa-lg fa-building"></i></span>
+                            <b> 地点: </b> 江安综合楼C105
+                          </li>
+                          <li class="mid"><span class="fa-li">
+                              <i class="fas fa-lg fa-calendar-alt"></i></span>
+                            <b>周次: </b>1-18周
+                          </li>
+                          <li class="mid">
+                            <span class="fa-li"><i class="fas fa-lg fa-clock"></i></span>
+                            <b>节次: </b>5-7节
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer">
+                    <div class="text-right">
+                      <button class="btn btn-sm btn-danger " delete>
+                        <i class="fas fa-trash"></i>删除课程
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                <div class="card bg-light">
+                  <div class="card-header text-muted border-bottom-0">
+                    计算机学院
+                  </div>
+                  <div class="card-body pt-0">
+                    <div class="row">
+                      <div class="col-auto">
+                        <h2 class="lead"><b>操作系统原理</b></h2>
+                        <p class="text-muted text-sm"><b>About: </b> 60530412 / 01 / 3学分 /
+                          <span class="badge badge-info">选修</span>
+                        </p>
+                        <ul class="ml-4 mb-0 fa-ul text-muted">
+                          <li class="mid">
+                            <span class="fa-li"><i class="fas fa-lg fa-user"></i></span>
+                            <b>教师: </b>张天庆
+                          </li>
+                          <li class="mid">
+                            <span class="fa-li"><i class="fas fa-lg fa-building"></i></span>
+                            <b> 地点: </b> 江安综合楼C105
+                          </li>
+                          <li class="mid"><span class="fa-li">
+                              <i class="fas fa-lg fa-calendar-alt"></i></span>
+                            <b>周次: </b>1-18周
+                          </li>
+                          <li class="mid">
+                            <span class="fa-li"><i class="fas fa-lg fa-clock"></i></span>
+                            <b>节次: </b>5-7节
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer">
+                    <div class="text-right">
+                      <button class="btn btn-sm btn-danger" delete>
+                        <i class="fas fa-trash"></i>删除课程
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.card-body -->
+          <div class="card-footer">
+            <nav aria-label="Contacts Page Navigation">
+              <ul class="pagination justify-content-center m-0">
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+              </ul>
+            </nav>
+          </div>
+          <!-- /.card-footer -->
+        </div>
+        <!-- /.card -->
+
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+  </div>
+  <!-- ./wrapper -->
+
+  <!-- jQuery -->
+  <script src="../../plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- SweetAlert2 -->
+  <script src="../../plugins/sweetalert2/sweetalert2.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="../../dist/js/adminlte.min.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="../../dist/js/demo.js"></script>
+  <!-- Page Render -->
+  <script>
+    // coder custom
+    $(function () {
+      //test code
+      // var json = {
+      //   id: "hhh",
+      //   name: "hhh"
+      // };
+      // sessionStorage.setItem('user', JSON.stringify(json));
+
+      var user = JSON.parse(sessionStorage.getItem("user"));
+      $("#username").text(user.name);
+
+      //preload
+      $.post("http://localhost:8080/dbLab_war_exploded/selected", { id: user.id },
+        function (data) {
+          data = JSON.parse(data);
+          list(data);
+        });
+
+      //delete button
+      $('.content').on('click', 'button[delete]', function () {
+        var temp = $(this).parent().parent().parent();
+        var course = temp.children().eq(1).find('p').text().toString();
+        // console.log(course);
+
+        //delete confirmation modals
+        Swal.fire({
+          title: '确定删除?',
+          text: "已删除的课程非选课阶段无法再次添加!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, Yes!'
+        }).then((result) => {
+          if (result.value) {
+            $.post('http://localhost:8080/dbLab_war_exploded/delete',
+              {
+                'fromdata': JSON.stringify({
+                  user_id: user.id,
+                  course_id: course.split(':')[1].split('/')[0],
+                  course_seq: course.split(':')[1].split('/')[1]
+                })
+              },
+              function (res) {
+                data = JSON.parse(res);
+                /*
+                {
+                  info:1 or 0
+                }
+                 */
+                if (data.info === "1") {
+                  Swal.fire(
+                    '删除成功!',
+                    '所选的课程已被删除',
+                    'success'
+                  )
+                  var action = temp.parent();
+                  // console.log(action.html());
+                  action.remove();
+                } else {
+                  Swal.fire(
+                    '删除失败!',
+                    '非选课阶段无法删除课程',
+                    'error'
+                  )
+                }
+              })
+
+          }
+        })
+
+      })
+
+    })
+
+    function list(data) {
+      /* data format
+               [
+                 {
+                   id:,
+                   seq:,
+                   name:,
+                   credit: eg:3,
+                   attribute: eg:必修,
+                   college:,
+                   teacher:,
+                   pos: eg:江安综合楼C105,
+                   duration: eg:1-18周,
+                   section: eg:5-7节
+                 },
+                 {
+                   ...
+                 }
+               ]
+               */
+      $("#course_list").empty();
+
+      //no chosen classes, display info box
+      if (data.length === 0) {
+        $('#course_list').before(
+          `<div class="alert alert-warning alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                  <h5><i class="icon fas fa-exclamation-triangle"></i> 注意!</h5>
+                 您并未选择任何课程……
+                </div>`
+        );
+      }
+
+      for (i in data) {
+        var str = "";
+        str += `<div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                <div class="card bg-light">
+                  <div class="card-header text-muted border-bottom-0">
+                    ${data[i].college}
+                  </div>
+                  <div class="card-body pt-0">
+                    <div class="row">
+                      <div class="col-auto">
+                        <h2 class="lead"><b>${data[i].name}</b></h2>
+                        <p class="text-muted text-sm"><b>About: </b> ${data[i].id} / ${data[i].seq} / ${data[i].credit}学分 /
+                          ${data[i].attribute === '必修' ? '<span class="badge badge-success">必修</span>' : '<span class="badge badge-info">选修</span>'}
+                        </p>
+                        <ul class="ml-4 mb-0 fa-ul text-muted">
+                          <li class="mid">
+                            <span class="fa-li"><i class="fas fa-lg fa-user"></i></span>
+                            <b>教师: </b>${data[i].teacher}
+                          </li>
+                          <li class="mid">
+                            <span class="fa-li"><i class="fas fa-lg fa-building"></i></span>
+                            <b> 地点: </b> ${data[i].pos}
+                          </li>
+                          <li class="mid"><span class="fa-li">
+                              <i class="fas fa-lg fa-calendar-alt"></i></span>
+                            <b>周次: </b>${data[i].duration}
+                          </li>
+                          <li class="mid">
+                            <span class="fa-li"><i class="fas fa-lg fa-clock"></i></span>
+                            <b>节次: </b>${data[i].section}
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer">
+                    <div class="text-right">
+                      <button class="btn btn-sm btn-danger" delete>
+                        <i class="fas fa-trash"></i>删除课程
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>`;
+        $("#course_list").append(str);
+      }
+
+    }
+    //暂不支持分页
+  </script>
+</body>
+
+</html>

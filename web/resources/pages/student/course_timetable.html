@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>选课管理系统</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- <link rel="stylesheet" href="../../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css"> -->
+  <!-- fullCalendar -->
+  <link rel="stylesheet" href="../../plugins/fullcalendar/main.min.css">
+  <!-- <link rel="stylesheet" href="../../plugins/fullcalendar-interaction/main.min.css"> -->
+  <link rel="stylesheet" href="../../plugins/fullcalendar-daygrid/main.min.css">
+  <link rel="stylesheet" href="../../plugins/fullcalendar-timegrid/main.min.css">
+  <link rel="stylesheet" href="../../plugins/fullcalendar-bootstrap/main.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+  <div class="wrapper">
+
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="index_student.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="#" class="nav-link">Contact</a>
+        </li>
+      </ul>
+
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <!-- Brand Logo -->
+      <a href="#" class="brand-link">
+        <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+          style="opacity: .8">
+        <span class="brand-text font-weight-light">学生端</span>
+      </a>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            <img src="../../dist/img/avatar04.png" class="img-circle elevation-2" alt="User Image">
+          </div>
+          <div class="info">
+            <a href="#" id="username" class="d-block">Alexander Pierce</a>
+          </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2" style="height:75%; overflow:hidden;">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+            <li class="nav-item">
+              <a href="student_info.html" class="nav-link">
+                <i class="nav-icon fas fa-address-card"></i>
+                <p>个人信息</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link active">
+                <i class="nav-icon far fa-calendar-alt"></i>
+                <p>
+                  学期课表
+                </p>
+              </a>
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  课程管理
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="course_info.html" class="nav-link">
+                    <i class="far ion-information-circled nav-icon"></i>
+                    <p>课程信息</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="course_select.html" class="nav-link">
+                    <i class="far nav-icon fa-plus-square"></i>
+                    <p>添加课程</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="chosen_course.html" class="nav-link">
+                    <i class="fas fa-clipboard-list nav-icon"></i>
+                    <p>已选课程</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+        </nav>
+        <!-- /.sidebar-menu -->
+
+        <!-- sidebar log out panel -->
+        <div class="nav-item  nav-compact flex-column" role="menu" data-accordion="false">
+          <a href="../login.html" class="nav-link">
+            <i class="fas nav-icon fa-sign-out-alt fa-2x"
+              style="color: rgb(172, 35, 35); position:absolute; bottom:2vmin;left:2vmin;"></i>
+            <div style="text-indent:3vmin;font-size: 4vmin; 
+                position:absolute;bottom:1%;left:15%;"><b>注销</b></div>
+          </a>
+        </div>
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <!-- <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>学期课表</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="index_student.html">Home</a></li>
+                <li class="breadcrumb-item active">学期课表</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section> -->
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="">
+          <div class="row">
+
+            <!-- /.col -->
+            <div class="col-md-auto">
+              <div class="card card-primary">
+                <div class="card-body p-0">
+                  <!-- THE CALENDAR -->
+                  <div id="calendar"></div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+  </div>
+  <!-- ./wrapper -->
+
+  <!-- jQuery -->
+  <script src="../../plugins/jquery/jquery.min.js"></script>
+  <!-- jQuery UI -->
+  <script src="../../plugins/jquery-ui/jquery-ui.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="../../dist/js/adminlte.min.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="../../dist/js/demo.js"></script>
+  <!-- fullCalendar 2.2.5 -->
+  <script src="../../plugins/moment/moment.min.js"></script>
+  <script src="../../plugins/fullcalendar/main.min.js"></script>
+  <script src="../../plugins/fullcalendar-daygrid/main.min.js"></script>
+  <script src="../../plugins/fullcalendar-timegrid/main.min.js"></script>
+  <script src="../../plugins/fullcalendar-interaction/main.min.js"></script>
+  <script src="../../plugins/fullcalendar-bootstrap/main.min.js"></script>
+  <!-- Page specific script -->
+  <script>
+    $(function () {
+
+      /* initialize the calendar
+       -----------------------------------------------------------------*/
+      //Date for the calendar events (dummy data)
+      var date = new Date()
+      var d = date.getDate(),
+        m = date.getMonth(),
+        y = date.getFullYear();
+
+      var Calendar = FullCalendar.Calendar;
+
+      var calendarEl = document.getElementById('calendar');
+
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        plugins: ['bootstrap', 'interaction', 'timeGrid', 'dayGrid', 'timeGridPlugin'],
+        contentHeight: 'auto',
+        allDaySlot: false,
+        defaultView: 'timeGridWeek',
+        slotLabelDuration: '02:00:00',
+        minTime: '08:00:00',
+        maxTime: '22:00:00',
+        // timeGridEventMinHeight:500,
+        header: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        //Random default events
+        events: [
+          {
+            title: '线性代数（理工）',
+            description: '耿圣飞 1-2节 \n江安综合楼C座C404',
+            daysOfWeek: ['2'],
+            startTime: '08:15:00',
+            endTime: '09:55:00',
+            startRecur: '2019-09-08',
+            endRecur: '2020-01-04',
+            allDay: false,
+            textColor: 'white',
+            backgroundColor: 'orange', //red
+            borderColor: 'orange' //red
+          },
+          {
+            title: '政治经济学',
+            description: '骆桢 5-7节 \n江安一教B座B102',
+            start: new Date(y, m, d - 5),
+            end: new Date(y, m, d - 2),
+            daysOfWeek: ['4'],
+            startTime: '13:50:00',
+            endTime: '16:25:00',
+            startRecur: '2019-09-08',
+            endRecur: '2020-01-04',
+            allDay: false,
+            textColor: 'white',
+            backgroundColor: 'pink', //yellow
+            borderColor: 'pink' //yellow
+          },
+          {
+            title: '思想道德修养与法律基础',
+            description: '杨兵 3-4节 \n江安综合楼C座C403',
+            daysOfWeek: ['2'],
+            startTime: '10:15:00',
+            endTime: '11:55:00',
+            startRecur: '2019-09-08',
+            endRecur: '2020-01-04',
+            allDay: false,
+            textColor: "white",
+            backgroundColor: 'olive', //Blue
+            borderColor: 'olive' //Blue
+          },
+          {
+            groupId: '_43',
+            title: '大学生心理健康',
+            description: '段化鞠 1-2节 \n 江安一教B座B207',
+            daysOfWeek: ['1'],
+            startTime: '08:15:00',
+            endTime: '09:55:00',
+            startRecur: '2019-11-11',
+            endRecur: '2020-01-04',
+            allDay: false,
+            textColor: "white",
+            backgroundColor: '#00c0ef', //Info (aqua)
+            borderColor: '#00c0ef', //Info (aqua)
+          },
+          {
+            title: '微积分（Ⅰ） ',
+            description: '闵心畅 3-4节 \n 江安综合楼C座C408',
+            daysOfWeek: ['1'],
+            startTime: '10:15:00',
+            endTime: '11:55:00',
+            startRecur: '2019-09-08',
+            endRecur: '2020-01-04',
+            allDay: false,
+            textColor: "white",
+            backgroundColor: '#00a65a', //Success (green)
+            borderColor: '#00a65a' //Success (green)
+          },
+          {
+            title: '大学英语（口语）',
+            description: '外聘20（外语）\n 江安一教C座C205',
+            daysOfWeek: ['1'],
+            startTime: '15:40:00',
+            endTime: '16:25:00',
+            startRecur: '2019-09-15',
+            endRecur: '2020-01-04',
+            textColor: "white",
+            backgroundColor: '#3c8dbc', //Primary (light-blue)
+            borderColor: '#3c8dbc' //Primary (light-blue)
+          }
+        ],
+        editable: false,
+        droppable: true, // this allows things to be dropped onto the calendar !!!
+        eventRender: function (info) {
+          $(info.el).tooltip({
+            title: info.event.extendedProps.description,
+            placement: "top",
+            trigger: "hover",
+            container: "body"
+          });
+        }
+      });
+
+      //calendar.render();
+    })
+  </script>
+  <!-- coder custom render -->
+  <script>
+    $(function () {
+      var user = JSON.parse(sessionStorage.getItem('user'));
+      $('#username').text(user.name);
+
+      $.post('http://localhost:8080/dbLab_war_exploded/timetable',
+              {"fromdata":JSON.stringify(user.id)},
+              function(data){
+                  console.log(data);
+                  page_render(data);
+              }
+    )
+
+    function page_render(data) {
+      // [
+      //   {
+      //     title: '大学英语（口语）',
+      //     description: '外聘20（外语）\n 江安一教C座C205',
+      //     daysOfWeek: ['1'],//single value, 0 stand for Sunday etc. the day of class
+      //     startTime: '15:40:00',//class start time of a day, computed
+      //     endTime: '16:25:00',//class end time of a day, computed
+      //     startRecur: '2019-09-15',// class start time of semester
+      //     endRecur: '2020-01-04',//class end time of semester
+      //     textColor: "white",// all classes are white
+      //     backgroundColor: '#3c8dbc', //Primary (light-blue)
+      //     borderColor: '#3c8dbc' //Primary (light-blue)
+      //     //ought to have a color pool to choose color from, 
+      //     //different classes have different color
+      //     //eg: Caculus class within a week have orange color (though with differernt class time)
+      //   },
+      //   {
+      //     ...
+      //   }
+      // ]
+      var date = new Date()
+      var d = date.getDate(),
+        m = date.getMonth(),
+        y = date.getFullYear();
+
+      var Calendar = FullCalendar.Calendar;
+
+      var calendarEl = document.getElementById('calendar');
+
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        plugins: ['bootstrap', 'interaction', 'timeGrid', 'dayGrid', 'timeGridPlugin'],
+        contentHeight: 'auto',
+        allDaySlot: false,
+        defaultView: 'timeGridWeek',
+        slotLabelDuration: '02:00:00',
+        minTime: '08:00:00',
+        maxTime: '22:00:00',
+        // timeGridEventMinHeight:500,
+        header: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        events:JSON.parse(data),
+        editable: false,
+        droppable: true, // this allows things to be dropped onto the calendar !!!
+        eventRender: function (info) {
+          $(info.el).tooltip({
+            title: info.event.extendedProps.description,
+            placement: "top",
+            trigger: "hover",
+            container: "body"
+          });
+        }
+      });
+    
+      calendar.render();
+        //not support web cache of class table
+    }
+    });
+// 未实现：
+// 待办事项功能
+  </script>
+</body>
+
+</html>
